@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EscortModelStoreContainer" CdmEntityContainer="EscortagramEntities">
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="EscortModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="UserType1" ColumnName="UserType" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageTBs">
+      <EntityTypeMapping TypeName="EscortModel.PageTB">
+        <MappingFragment StoreEntitySet="PageTB">
+          <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PageOrder" ColumnName="PageOrder" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="PageID" ColumnName="PageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryTbs">
+      <EntityTypeMapping TypeName="EscortModel.CountryTb">
+        <MappingFragment StoreEntitySet="CountryTb">
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateTbs">
+      <EntityTypeMapping TypeName="EscortModel.StateTb">
+        <MappingFragment StoreEntitySet="StateTb">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelRates">
+      <EntityTypeMapping TypeName="EscortModel.ModelRate">
+        <MappingFragment StoreEntitySet="ModelRates">
+          <ScalarProperty Name="OverNight" ColumnName="OverNight" />
+          <ScalarProperty Name="DinnerRate" ColumnName="DinnerRate" />
+          <ScalarProperty Name="AdditionalHours" ColumnName="AdditionalHours" />
+          <ScalarProperty Name="Rate2Hours" ColumnName="Rate2Hours" />
+          <ScalarProperty Name="Rate1Hour" ColumnName="Rate1Hour" />
+          <ScalarProperty Name="Rate30min" ColumnName="Rate30min" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="RateID" ColumnName="RateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMasters">
+      <EntityTypeMapping TypeName="EscortModel.UserMaster">
+        <MappingFragment StoreEntitySet="UserMaster">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LogoGuid" ColumnName="LogoGuid" />
+          <ScalarProperty Name="UKtravel" ColumnName="UKtravel" />
+          <ScalarProperty Name="FavouriteCuisine" ColumnName="FavouriteCuisine" />
+          <ScalarProperty Name="FavouritePerfume" ColumnName="FavouritePerfume" />
+          <ScalarProperty Name="Orientation" ColumnName="Orientation" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="DressSize" ColumnName="DressSize" />
+          <ScalarProperty Name="Measurements" ColumnName="Measurements" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelImages">
+      <EntityTypeMapping TypeName="EscortModel.ModelImage">
+        <MappingFragment StoreEntitySet="ModelImages">
+          <ScalarProperty Name="OtherImages" ColumnName="OtherImages" />
+          <ScalarProperty Name="BannerImageGuid" ColumnName="BannerImageGuid" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="ModelImageID" ColumnName="ModelImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannerImageTBs">
+      <EntityTypeMapping TypeName="EscortModel.BannerImageTB">
+        <MappingFragment StoreEntitySet="BannerImageTB">
+          <ScalarProperty Name="BannerImage" ColumnName="BannerImage" />
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonials">
+      <EntityTypeMapping TypeName="EscortModel.Testimonial">
+        <MappingFragment StoreEntitySet="Testimonial">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TestimonialImage" ColumnName="TestimonialImage" />
+          <ScalarProperty Name="TestimonialDesc" ColumnName="TestimonialDesc" />
+          <ScalarProperty Name="TestimonialTitle" ColumnName="TestimonialTitle" />
+          <ScalarProperty Name="TestimonialID" ColumnName="TestimonialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_category">
+      <EntityTypeMapping TypeName="EscortModel.blog_category">
+        <MappingFragment StoreEntitySet="blog_category">
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_comment">
+      <EntityTypeMapping TypeName="EscortModel.blog_comment">
+        <MappingFragment StoreEntitySet="blog_comment">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="mark_read" ColumnName="mark_read" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="is_reply_to_id" ColumnName="is_reply_to_id" />
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_post">
+      <EntityTypeMapping TypeName="EscortModel.blog_post">
+        <MappingFragment StoreEntitySet="blog_post">
+          <ScalarProperty Name="Love" ColumnName="Love" />
+          <ScalarProperty Name="views" ColumnName="views" />
+          <ScalarProperty Name="comments_enabled" ColumnName="comments_enabled" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="featured" ColumnName="featured" />
+          <ScalarProperty Name="banner_image" ColumnName="banner_image" />
+          <ScalarProperty Name="date_published" ColumnName="date_published" />
+          <ScalarProperty Name="authorId" ColumnName="authorId" />
+          <ScalarProperty Name="article" ColumnName="article" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="blogId" ColumnName="blogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_post_to_category">
+      <EntityTypeMapping TypeName="EscortModel.blog_post_to_category">
+        <MappingFragment StoreEntitySet="blog_post_to_category">
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_related">
+      <EntityTypeMapping TypeName="EscortModel.blog_related">
+        <MappingFragment StoreEntitySet="blog_related">
+          <ScalarProperty Name="related_post_id" ColumnName="related_post_id" />
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="relatedid" ColumnName="relatedid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blog_tag">
+      <EntityTypeMapping TypeName="EscortModel.blog_tag">
+        <MappingFragment StoreEntitySet="blog_tag">
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="tagid" ColumnName="tagid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelDetails">
+      <EntityTypeMapping TypeName="EscortModel.ModelDetail">
+        <MappingFragment StoreEntitySet="ModelDetail">
+          <ScalarProperty Name="Services" ColumnName="Services" />
+          <ScalarProperty Name="WorldWideTravel" ColumnName="WorldWideTravel" />
+          <ScalarProperty Name="UKtravel" ColumnName="UKtravel" />
+          <ScalarProperty Name="FavouriteCuisine" ColumnName="FavouriteCuisine" />
+          <ScalarProperty Name="FavouritePerfume" ColumnName="FavouritePerfume" />
+          <ScalarProperty Name="Orientation" ColumnName="Orientation" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="DressSize" ColumnName="DressSize" />
+          <ScalarProperty Name="Measurements" ColumnName="Measurements" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

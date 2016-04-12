@@ -1,0 +1,170 @@
+
+/* GOOGLE FONT (https://www.google.com/fonts)
+================================================== */
+@import url(http://fonts.googleapis.com/css?family=Gafata|Roboto:300,400,500,700,900);
+
+/* 1.1 BASIC
+====================================== */
+@import url(template/basic.css);
+
+/* 1.2 TYPOGRAPHY
+====================================== */
+@import url(template/typography.css);
+
+/* 1.3 NAVBAR
+====================================== */
+@import url(template/navbar.css);
+
+/* 1.4 SECTION
+====================================== */
+@import url(template/section.css);
+
+/* 1.5 BUTTON
+====================================== */
+@import url(template/button.css);
+
+/* 1.6 BREADCRUMBS
+====================================== */
+@import url(template/breadcrumb.css);
+
+/* 1.7 PAGINATION
+====================================== */
+@import url(template/pagination.css);
+
+/* 1.8 FOOTER
+====================================== */
+@import url(template/footer.css);
+
+/* 1.9 MODAL
+====================================== */
+@import url(template/modal.css);
+
+/* 1.10 OBJECT
+====================================== */
+@import url(template/object.css);
+
+
+
+
+
+/* 2 MAPS
+====================================== */
+@import url(template/maps.css);
+
+/* 2.1 SEARCHER BOX
+====================================== */
+@import url(template/searcher.css);
+
+/* 2.2 INFO-BOX
+====================================== */
+@import url(template/info-box.css);
+
+
+
+
+/* 3 SLIDER
+====================================== */
+@import url(template/slider.css);
+
+/* 3.1 SLIDER-PAGE
+====================================== */
+@import url(template/slider-page.css);
+
+
+
+
+/* 4.1 HOME
+====================================== */
+@import url(template/pages/home.css);
+
+/* 4.2 AGENCY
+====================================== */
+@import url(template/pages/agency.css);
+
+/* 4.3 COMING SOON
+====================================== */
+@import url(template/pages/coming-soon.css);
+
+/* 4.4 BLOG
+====================================== */
+@import url(template/pages/blog.css);
+
+/* 4.5 CONTACT
+====================================== */
+@import url(template/pages/contact.css);
+
+/* 4.6 CREATE AGENCY
+====================================== */
+@import url(template/pages/create-agency.css);
+
+/* 4.7 FAQ
+====================================== */
+@import url(template/pages/faq.css);
+
+/* 4.8 GALLERY
+====================================== */
+@import url(template/pages/gallery.css);
+
+/* 4.9 INVOICE
+====================================== */
+@import url(template/pages/invoice.css);
+
+/* 4.10 MY PROPERTY
+====================================== */
+@import url(template/pages/my-property.css);
+
+/* 4.11 NEW PROPERTY
+====================================== */
+@import url(template/pages/new-property.css);
+
+/* 4.12 PRICING
+====================================== */
+@import url(template/pages/pricing.css);
+
+/* 4.13 SHORTCODE
+====================================== */
+@import url(template/pages/shortcode.css);
+
+/* 4.14 SIDEBAR
+====================================== */
+@import url(template/pages/sidebar.css);
+
+/* 4.15 TERM CONDITION
+====================================== */
+@import url(template/pages/term-condition.css);
+
+/* 4.16 SIGN-IN
+====================================== */
+@import url(template/pages/sign-in.css);
+
+/* 4.17 TIMELINE
+====================================== */
+@import url(template/pages/timeline.css);
+
+/* 4.18 USER PROFILE
+====================================== */
+@import url(template/pages/user-profile.css);
+
+/* 4.19 ERROR
+====================================== */
+@import url(template/pages/error.css);
+
+/* 4.20 ABOUT
+====================================== */
+@import url(template/pages/about.css);
+
+/* 4.21 AGENT
+====================================== */
+@import url(template/pages/agent.css);
+
+/* 4.23 PROPERTY-PAGE
+====================================== */
+@import url(template/pages/property-page.css);
+
+/* 4.24 LISTING-PAGE
+====================================== */
+@import url(template/pages/listing-page.css);
+
+/* 4.22 HEADER PAGE
+====================================== */
+@import url(template/pages/header-page.css);

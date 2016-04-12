@@ -1,0 +1,123 @@
+﻿@model escortagram.Models.PageModel
+@{
+    ViewBag.Title = "Home";
+}
+
+
+
+<button class="btn btn-primary" data-target="#HomeButton" data-toggle="collapse">Edit Menu Buttons</button>
+<button class="btn btn-primary" data-target="#BannerImage" data-toggle="collapse">Change Banner Image</button>
+<button class="btn btn-primary" data-target="#Testimonila" data-toggle="collapse">Edit Menu Buttons</button>
+
+
+<div class="box-body">
+    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+            <div class="col-sm-12">
+                <div class="accordion-group">
+                    <div id="HomeButton" class="collapse indent">
+                        <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Menu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">PageOrder</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">CreatedDate</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">ModifiedDate</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">PageURL</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.List)
+                                {
+                                    <tr role="row" class="odd" id="FindMenu_@item.PageID">
+                                        <td class="sorting_1">@item.PageName</td>
+                                        <td>@item.PageOrder</td>
+                                        <td>@item.CreatedDate</td>
+                                        <td>@item.ModifiedDate</td>
+                                        @if (item.Status == true)
+                                        {
+                                            <td>
+                                                <input type="checkbox" id="pagestatus_@item.PageID" checked="@item.Status" />
+                                            </td>
+                                            @*@Html.CheckBox("checked", true, new { @id = "pagestatus_" + item.PageID })></td>*@
+                                        }
+                                        else
+                                        {
+
+                                            <td>
+                                                <input type="checkbox" id="pagestatus_@item.PageID" checked="@item.Status" />
+                                                @*@Html.CheckBox("checked", false)*@
+                                            </td>
+                                        }
+
+
+                                        <td>@item.PageURL</td>
+                                        <td>
+                                            <a href="#" id="actionlinkb_@item.PageID" onclick="EditMenuColumn(@item.PageID);">Edit</a>
+
+                                            <div id="hidediv_@item.PageID" style="display:none">
+                                                <a href="#" id="Cancellink_@item.PageID" onclick="Updatedata(@item.PageID);">Update</a>
+                                                <a href="#" id="UpdateLink_@item.PageID" onclick="CancelLink(@item.PageID);">Cancel</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div id="BannerImage" class="collapse indent">
+                        <form method="post" id="UploadBanner">
+                            <input type="file" id="resetImage" name="file" /><br />
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </form>
+                    </div>
+                    <div id="Testimonila" class="collapse indent">
+                        <form action="/Home/Testimonials/" method="post" id="TestimonilaUpload">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="LastName">Title</label>
+                                    <div class="col-sm-10">
+
+                                        <input type="text" id="testmonialtext" name="Title" class="form-group" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="LastName">Description</label>
+                                    <div class="col-sm-10">
+
+                                        <input type="text" id="testmonialDesc" name="Desc" class="form-group" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="LastName">Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="file" />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                        
+
+                                    </div>
+                                </div>
+                                <a href="@Url.Action("ViewTestimonial","Home")" class="btn btn-primary">View</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+@using escortagram.Models
+@{
+    EscortagramEntities db = new EscortagramEntities();
+    var MenuButton = db.PageTBs.Where(x => x.Status == true).ToList();
+
+
+}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Escortagram</title>
+    <link href="~/Frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Frontend/js/slippry.css" rel="stylesheet">
+    <link href="~/Frontend/css/style.css" rel="stylesheet">
+    <script src="~/Frontend/js/ie-emulation-modes-warning.js"></script>
+    <link href="~/Frontend/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="content-fluid block_1 ">
+        <nav id="header" class="navbar navbar-fixed-top">
+            <div id="header-container" class="container navbar-container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="brand" class="navbar-brand" href="#"><img src="~/Frontend/images/logo.png"></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right top_block_menu">
+                        @{
+                            var count = 0;
+                        }
+                        @foreach (var item in MenuButton)
+                        {
+
+                            if (count == 0)
+                            {
+                                <li class="active"><a href="@Url.Action("Index",item.PageURL)">@item.PageName</a></li>
+                                count += 1;
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Index", item.PageURL)">@item.PageName</a></li>
+                            }
+                        }
+                        @*<li><a href="#contact">duo escorts</a></li>
+                            <li><a href="booking.html">booking</a></li>
+                            <li><a href="detail.html">Detail</a></li>
+                            <li><a href="employment.html">employment</a></li>*@
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </div>
+
+
+    <div class="content-fluid block_2 block_22">
+    </div>
+    @RenderBody()
+    <div class="content-fluid block_6">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="list_footer">
+                        <h2>Navigation</h2>
+                        <ul>
+                            <li><a href="">home</a></li>
+                            <li><a href="">gallery</a></li>
+                            <li><a href="">duo escorts</a></li>
+                            <li><a href="">booking</a></li>
+                            <li><a href="">blog</a></li>
+                            <li><a href="">employment</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="list_footer">
+                        <h2>Escorts by Services</h2>
+                        <ul>
+                            <li><a href="">Lorem Ipsum</a></li>
+                            <li><a href="">Lorem Ipsum</a></li>
+                            <li><a href="">Lorem Ipsum</a></li>
+                            <li><a href="">Lorem Ipsum</a></li>
+                            <li><a href="">Lorem Ipsum</a></li>
+                            <li><a href="">Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="list_footer">
+                        <h2>contact us</h2>
+                        <ul>
+                            <li><input type="text"></li>
+                            <li><input type="text"></li>
+                            <li><textarea></textarea></li>
+                            <li><input class="text_area" type="submit"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-fluid block_7">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <p class="footer_para">Copyright © 2016 All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>*@
+    <script src="~/Frontend/js/bootstrap.min.js"></script>
+    <script src="~/Frontend/js/slippry.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#slippry-demo').slippry()
+
+        });
+        $(document).ready(function () {
+            $('#slipprysl-demo2').slippry()
+
+        });
+        $(function () {
+            var demo1 = $("#slippry-demo").slippry({
+                // transition: 'fade',
+                // useCSS: true,
+                // speed: 1000,
+                // pause: 3000,
+                // auto: true,
+                // preload: 'visible',
+                // autoHover: false
+            });
+        });
+        $(function () {
+            var demo2 = $('#slipprysl-demo2').slippry({});
+        });</script>
+</body>
+</html>

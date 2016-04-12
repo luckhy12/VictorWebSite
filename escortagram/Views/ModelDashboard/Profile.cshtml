@@ -1,0 +1,380 @@
+﻿@model escortagram.Models.UserMasterCustom
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var UID = Convert.ToInt32(Session["UserID"]);
+    var bannerImage = "";
+    var Logo = "";
+    if (Model.BannerImage != null)
+    {
+        bannerImage = "/Upload/ModelImages/" + UID + "/" + Model.BannerImage + ".jpg";
+    }
+    else
+    {
+       
+    }
+    if (Model.LogoGuid != null)
+    {
+        Logo = "/Upload/ModelImages/" + UID + "/" + Model.LogoGuid + ".jpg";
+    }
+}
+<style>
+    .uploadimage {
+        margin-left: 56px;
+    }
+</style>
+<input type="hidden" value="@Session["UserID"]" id="myHiddenVar" />
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        User Profile
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">User profile</li>
+    </ol>
+</section>
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <img alt=" user profile picture" src="@Logo" class="profile-user-img img-responsive img-circle changepic">
+
+                    <h3 class="profile-username text-center">Nina Mcintire</h3>
+                    <a data-toggle="modal" class="uploadimage" href="#changeProfilepic">Upload Profile Pic</a>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Followers</b> <a class="pull-right">1,322</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Following</b> <a class="pull-right">543</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Friends</b> <a class="pull-right">13,287</a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-primary btn-block" href="#"><b>Follow</b></a>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+
+        </div><!-- /.col -->
+        <div class="col-md-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#activity" aria-expanded="false">Activity</a></li>
+                    <li class=""><a data-toggle="tab" href="#Upload">Upload Images</a></li>
+                    <li><a data-toggle="tab" href="#settings">Settings</a></li>
+                    <li class="pull-right"><span id="ShowSuccess" style="display:none" class="text-success">@ViewBag.Success</span></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="activity" class="tab-pane active">
+                        <!-- Post -->
+                        <div class="col-md-6">
+                            <label class="text-info">Name : @Model.FirstName</label><br />
+                            <label class="text-info ">LastName : @Model.LastName</label><br />
+                            <label class="text-info ">Location : @Model.Location</label><br />
+                            <label class="text-info ">Measurements : @Model.Measurements</label><br />
+                            <label class="text-info ">MobileNo : @Model.MobileNo</label><br />
+                            <label class="text-info ">Nationality : @Model.Nationality</label><br />
+                            <label class="text-info ">Languages : @Model.Languages</label>
+
+                            @*<div class="post">
+                                    <div class="user-block">
+                                        <img alt="user image" src="../../dist/img/user1-128x128.jpg" class="img-circle img-bordered-sm">
+                                        <span class="username">
+                                            <a href="#">Jonathan Burke Jr.</a>
+                                            <a class="pull-right btn-box-tool" href="#"><i class="fa fa-times"></i></a>
+                                        </span>
+                                        <span class="description">Shared publicly - 7:30 PM today</span>
+                                    </div><!-- /.user-block -->
+                                    <p>
+                                        Lorem ipsum represents a long-held tradition for designers,
+                                        typographers and the like. Some people hate it and argue for
+                                        its demise, but others ignore the hate as they create awesome
+                                        tools to help create filler text for everyone from bacon lovers
+                                        to Charlie Sheen fans.
+                                    </p>
+
+
+                                    <input type="text" placeholder="Type a comment" class="form-control input-sm">
+                                </div>*@
+                        </div><!-- /.post -->
+                        <!-- Post --><div class="col-md-6">
+                            <label class="text-info ">Height : @Model.Height</label><br />
+                            <label class="text-info ">HairColor : @Model.HairColor</label><br />
+                            <label class="text-info ">Orientation : @Model.Orientation</label><br />
+                            <label class="text-info ">UKtravel : @Model.UKtravel</label><br />
+                            <label class="text-info ">DressSize : @Model.DressSize</label><br />
+                            <label class="text-info ">Email : @Model.Email</label><br />
+                            <label class="text-info ">Availability : @Model.Availability</label>
+
+                        </div>
+                        <!-- /.post -->
+                        <!-- Post -->
+
+                        <div class="post">
+                            <div class="user-block">
+
+                                @*<a class="pull-right btn-box-tool" href="#"><i class="fa fa-times"></i></a>*@
+
+
+                            </div><!-- /.user-block -->
+                            <div class="row margin-bottom">
+                                <div class="col-sm-12">
+                                    <label>Description:</label>
+                                    <p>
+                                        @Model.Description
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row margin-bottom">
+                                <div class="col-sm-6">
+
+                                    <img alt="Photo" id="SetNewBanner" src="@bannerImage" style="height:250px;" class="img-responsive">
+                                </div><!-- /.col -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        @if (Model.ImagesList != null)
+                                        {
+                                            var count = 0;
+                                            foreach (var item in Model.ImagesList)
+                                            {
+
+                                                var OtherImages = "/Upload/ModelImages/" + UID + "/" + item.OtherImages + ".jpg";
+                                                if (count <= 1)
+                                                {
+
+                                                    <div class="col-sm-6">
+
+                                                        <a onclick="SetBannerImage('@item.OtherImages');"><img alt="Photo" src="@OtherImages" style="height:113px;width:200px;" class="img-responsive" /></a>
+                                                        <br>
+                                                        @{
+                                                    count += 1;
+                                                        }
+                                                        @*<img alt="Photo" src="~/Content/dist/img/photo3.jpg" class="img-responsive">*@
+                                                    </div>
+                                                }
+                                                else if (count >= 2 && count<=3)
+                                                {
+                                                    <div class="col-sm-6">
+                                                        <a onclick="SetBannerImage('@item.OtherImages');"><img alt="Photo" src="@OtherImages" style="height:113px;width:200px;" class="img-responsive" /></a>
+                                                        <br>
+                                                        @{
+                                                    count += 1;
+                                                        }  @*<img alt="Photo" src="~/Content/dist/img/photo1.png" class="img-responsive">*@
+                                                    </div>
+                                                } <!-- /.col -->
+
+                                            }
+                                        }
+
+                                        <!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+
+                            <ul class="list-inline">
+                                <li><a class="link-black text-sm" href="#"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                                <li><a class="link-black text-sm" href="#"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                                <li class="pull-right"><a class="link-black text-sm" href="#"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                            </ul>
+
+                            <input type="text" placeholder="Type a comment" class="form-control input-sm">
+                        </div>
+                        <!-- /.post -->
+                    </div>
+                    <div id="Upload" class="tab-pane">
+                        <!-- Post -->
+                        <div class="col-md-6"></div>
+                            <!-- /.post -->
+
+
+                            <form action="@Url.Action("deopzone", "ModelDashboard")" class="dropzone" id="my-dropzone"></form>
+                            <button class="btn btn-danger pull-right" id="submit-all">Submit</button>
+                        
+                    </div><!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
+
+                    <div id="settings" class="tab-pane">
+                        @using (Html.BeginForm("Profile", "ModelDashboard", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal", @id = "UpdateProfile" }))
+                        {
+
+                            // <form class="form-horizontal">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="inputName">Name</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="LastName">Last Name</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Email">Email</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="DressSize">Dress Size</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.DressSize, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="EyeColor">Eye Color</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.EyeColor, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="FavouriteCuisine">Favourite Cuisine</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.FavouriteCuisine, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="MobileNo">MobileNo</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.MobileNo, new { @class = "form-control required", @maxLength = 10 })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Nationality">Nationality</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.DropDownListFor(x => x.Nationalityupdate, ViewBag.Country as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Nationality">Description</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="FavouritePerfume">Perfume</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.FavouritePerfume, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="HairColor">Hair Color</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.HairColor, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Height">Height</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Height, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Languages">Languages</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Languages, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Location">Location</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Location, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Measurements">Measurements</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Measurements, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Orientation">Orientation</label>
+                                    <div class="col-sm-9">
+
+                                        @Html.TextBoxFor(x => x.Orientation, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Orientation">UKtravel</label>
+                                    <div class="col-sm-9">
+                                        <span class="checkbox" style="margin-left: 25px;">
+
+                                            @Html.CheckBoxFor(x => x.UKtravelupdate, new { @class = "checked" })
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-danger pull-left" type="submit">Submit</button>
+                                </div>
+                            </div>
+                            //  </form>
+                        }
+                    </div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+            </div><!-- /.nav-tabs-custom -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    <div id="changeProfilepic" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Save changes</h4>
+                </div>
+
+                <form enctype="multipart/form-data" id="UploadprofilePic" class="form-horizontal">
+                    <div class="modal-body">
+
+                        <input type="file" id="picupload" name="file" />
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default pull-left" type="button">Close</button>
+                        <input class="btn btn-primary" type="submit" value="Upload" />
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+
+
+</section>

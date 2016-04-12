@@ -1,0 +1,31 @@
+
+.pagination {
+  padding: 0;
+  text-align: center;
+  /* > li */
+}
+.pagination > li {
+  /* > a */
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #333;
+  font-size: 14px;
+  margin-left: 2px;
+  float: left;
+  border: none;
+  float: none;
+  background-color: transparent;
+}
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > a.active, .pagination > li > a:hover i {
+  background-color: #e5e5e5;
+  border-radius: 1px;
+  color: #3e3e3e !important;
+}
+.pagination > li:first-child a,
+.pagination > li:last-child a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > span {
+  padding: 6px;
+  color: #333333;
+}

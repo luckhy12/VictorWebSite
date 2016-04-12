@@ -1,0 +1,201 @@
+﻿@model escortagram.Models.Escortsview
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFrontend.cshtml";
+}
+
+<div class="content-fluid block_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="block_menu">
+                    <ul class="black_name_bar">
+                        <li class="block_name"><a href="">london</a></li>
+                        <li class="block_name"><a href="">dubai</a></li>
+                        <li class="block_name"><a href="">germany</a></li>
+                        <li class="block_name"><a href="">france</a></li>
+                        <li class="block_names"><a href="#contact">+$150</a></li>
+                        <li class="block_names"><a href="#contact">+$200</a></li>
+                        <li class="block_names"><a href="#contact">$300</a></li>
+                        <li class="block_names"><a href="#contact">+$500</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div class="content-fluid block_3">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model.List)
+                {
+
+                    <div class="col-xs-6 col-sm-6 col-md-4">
+                        <div class="block_img">
+                            <img src="@item.BannerImageGuid" alt="Photo" style="height:300px;width:300px">
+                            <div class="block_image_text">
+                                <ul>
+                                    <li><h5>@item.FirstName<span class="vist_left">$xxx</span></h5></li>
+                                    <li>
+                                        <div class="category_lefts">
+                                            <a href=""><i class="fa fa-thumbs-up"></i></a>87
+                                        </div>
+                                        <div class="category_left">
+                                            <i class="fa fa-circle"></i>available
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="content-fluid block_4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <p class="canter_bl"><h2 class="top_head">Latest From The Blog</h2></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-fluid block_5">
+        <div class="container">
+            <div class="row block_rows">
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image10.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image11.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image10.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image10.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image11.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="block_box">
+                        <img src="~/Frontend/images/image10.jpg">
+                        <div class="block_latest">
+                            <h3>Respecting Boundaries</h3>
+                            <p>A discrete professional knows how to respect her client’s boundaries.…</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-fluid block_slider">
+        <div class="container">
+            <div class="row">
+                <div class="block_Test">
+                    <h2 class="top_head">Testimonials</h2>
+                    <p><img src="~/Frontend/images/line.png"></p>
+                </div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        @{
+                        var count = 0;
+                        }
+                        @foreach (var item in Model.Testi)
+                        {
+                           
+                            if (count == 0)
+                            {
+                                <div class="item active">
+                                    <img src="@item.TestimonialImage" style="height:100px;width:100px;" class="img-circle">
+                                    <div class="carousel-caption">
+                                        <p>@item.TestimonialDesc </p>
+                                        <a href="javascript:;"><p>View all Testimonials</p></a>
+                                    </div>
+                                </div>
+                                
+                                count += 1;
+                                
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <img src="@item.TestimonialImage" style="height:100px;width:100px;" class="img-circle">
+                                    <div class="carousel-caption">
+                                        <p>@item.TestimonialDesc </p>
+                                        <a href="javascript:;"><p>View all Testimonials</p></a>
+                                    </div>
+                                </div>
+                              
+                                count += 1;
+                                
+                            }
+                        }
+                       
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div> <!-- Carousel -->
+
+            </div>
+        </div>
+    </div>
+</div>

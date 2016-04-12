@@ -1,0 +1,175 @@
+
+	.loading-content {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background-color: #FFF;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 9999;
+	}
+	.cerchio {
+		border: 10px solid #50C8B4;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 10000;
+		margin: -50px 0 0 -50px;
+		height: 100px;
+		width: 100px;
+
+		-webkit-animation: pulsel 1.4s infinite; /* Safari 4+ */
+		-moz-animation:    pulsel 1.4s infinite; /* Fx 5+ */
+		-o-animation:      pulsel 1.4s infinite; /* Opera 12+ */
+		animation:         pulsel 1.4s infinite; /* IE 10+, Fx 29+ */
+
+		-webkit-border-radius: 50%;
+		-khtml-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-o-border-radius: 50%;
+		border-radius: 50%;
+	}
+
+	.cerchio2 {
+		position: absolute;
+		display: block;
+		width: 12px;
+		height: 12px;
+		margin: -6px 0 0 -6px;
+		z-index: 10003;
+		background-color: rgba(255,255,255, 0);
+		top: 50%;
+		left: 50%;
+
+		-webkit-animation: pulsele 1.4s infinite;
+		-moz-animation:    pulsele 1.4s infinite;
+		-o-animation:      pulsele 1.4s infinite;
+		animation:         pulsele 1.4s infinite;
+
+		-webkit-border-radius: 50%;
+		-khtml-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-o-border-radius: 50%;
+		border-radius: 50%;
+	}
+
+	.cerchio:after {
+		background-color: #50C8B4;
+		content: "";
+		display: block;
+		height: 60px;
+		left: 50%;
+		margin: -30px 0 0 -30px;
+		position: absolute;
+		top: 50%;
+		width: 60px;
+		z-index: 10002;
+
+		-webkit-border-radius: 50%;
+		-khtml-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-o-border-radius: 50%;
+		border-radius: 50%;
+
+		-webkit-animation: pulse 1.4s infinite;
+		-moz-animation:    pulse 1.4s infinite;
+		-o-animation:      pulse 1.4s infinite;
+		animation:         pulse 1.4s infinite;
+	}
+
+	.cerchio:before {
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+		border-top: 25px solid #50C8B4;
+		bottom: -18px;
+		content: "";
+		height: 0;
+		left: -11px;
+		position: absolute;
+		width: 0;
+		z-index: 10002;
+
+		-ms-transform: rotate(40deg); /* IE 9 */
+		-webkit-transform: rotate(40deg); /* Chrome, Safari, Opera */
+		 transform: rotate(40deg);
+	}
+
+	@keyframes pulse {
+		0% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+			background-color: #50C8B4;
+		}
+		50% {
+			transform:         scale(1.4);
+			-moz-transform:    scale(1.4);
+			-webkit-transform: scale(1.4);
+			-o-transform:      scale(1.4);
+			-ms-transform:     scale(1.4);
+			background-color: #FFF;
+		}
+		100% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+			background-color: #50C8B4;
+		}
+	}
+
+	@keyframes pulsel {
+		0% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+		}
+		50% {
+			transform:         scale(0.8);
+			-moz-transform:    scale(0.8);
+			-webkit-transform: scale(0.8);
+			-o-transform:      scale(0.8);
+			-ms-transform:     scale(0.8);
+		}
+		100% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+		}
+	}
+
+	@keyframes pulsele {
+		0% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+			background-color: rgba(255,255,255, 0);
+		}
+		50% {
+			transform:         scale(5.6);
+			-moz-transform:    scale(5.6);
+			-webkit-transform: scale(5.6);
+			-o-transform:      scale(5.6);
+			-ms-transform:     scale(5.6);
+			background-color: rgba(80,200,180, .99);
+		}
+		100% {
+			transform:         scale(1);
+			-moz-transform:    scale(1);
+			-webkit-transform: scale(1);
+			-o-transform:      scale(1);
+			-ms-transform:     scale(1);
+			background-color: rgba(255,255,255, 0);
+		}
+	}

@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscortModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BannerImageTB">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BannerImage" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="blog_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="date_created" Type="datetime" />
+  </EntityType>
+  <EntityType Name="blog_comment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="post_id" Type="int" Nullable="false" />
+    <Property Name="is_reply_to_id" Type="int" />
+    <Property Name="comment" Type="varchar" MaxLength="250" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="mark_read" Type="bit" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="blog_post">
+    <Key>
+      <PropertyRef Name="blogId" />
+    </Key>
+    <Property Name="blogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="150" />
+    <Property Name="article" Type="text" />
+    <Property Name="authorId" Type="int" />
+    <Property Name="date_published" Type="datetime" />
+    <Property Name="banner_image" Type="varchar" MaxLength="50" />
+    <Property Name="featured" Type="bit" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="comments_enabled" Type="bit" />
+    <Property Name="views" Type="int" />
+    <Property Name="Love" Type="int" />
+  </EntityType>
+  <EntityType Name="blog_post_to_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+    <Property Name="post_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="blog_related">
+    <Key>
+      <PropertyRef Name="relatedid" />
+    </Key>
+    <Property Name="relatedid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="post_id" Type="int" />
+    <Property Name="related_post_id" Type="int" />
+  </EntityType>
+  <EntityType Name="blog_tag">
+    <Key>
+      <PropertyRef Name="tagid" />
+    </Key>
+    <Property Name="tagid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="post_id" Type="int" />
+    <Property Name="tag" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CountryTb">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModelDetail">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MobileNo" Type="int" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="Languages" Type="varchar" MaxLength="50" />
+    <Property Name="Measurements" Type="varchar" MaxLength="50" />
+    <Property Name="DressSize" Type="int" />
+    <Property Name="Height" Type="int" />
+    <Property Name="HairColor" Type="varchar" MaxLength="50" />
+    <Property Name="EyeColor" Type="varchar" MaxLength="50" />
+    <Property Name="Availability" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Orientation" Type="varchar" MaxLength="50" />
+    <Property Name="FavouritePerfume" Type="varchar" MaxLength="50" />
+    <Property Name="FavouriteCuisine" Type="varchar" MaxLength="50" />
+    <Property Name="UKtravel" Type="bit" />
+    <Property Name="WorldWideTravel" Type="bit" />
+    <Property Name="Services" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ModelImages">
+    <Key>
+      <PropertyRef Name="ModelImageID" />
+    </Key>
+    <Property Name="ModelImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelID" Type="int" />
+    <Property Name="BannerImageGuid" Type="bit" />
+    <Property Name="OtherImages" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ModelRates">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelID" Type="int" />
+    <Property Name="Rate30min" Type="varchar" MaxLength="15" />
+    <Property Name="Rate1Hour" Type="varchar" MaxLength="15" />
+    <Property Name="Rate2Hours" Type="varchar" MaxLength="15" />
+    <Property Name="AdditionalHours" Type="varchar" MaxLength="15" />
+    <Property Name="DinnerRate" Type="varchar" MaxLength="15" />
+    <Property Name="OverNight" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="PageTB">
+    <Key>
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="PageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageName" Type="varchar" MaxLength="50" />
+    <Property Name="PageOrder" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PageURL" Type="text" />
+  </EntityType>
+  <EntityType Name="StateTb">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="int" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
+    <Property Name="CountryID" Type="int" />
+  </EntityType>
+  <EntityType Name="Testimonial">
+    <Key>
+      <PropertyRef Name="TestimonialID" />
+    </Key>
+    <Property Name="TestimonialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TestimonialTitle" Type="varchar" MaxLength="50" />
+    <Property Name="TestimonialDesc" Type="varchar" MaxLength="200" />
+    <Property Name="TestimonialImage" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordSalt" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MobileNo" Type="int" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="Languages" Type="varchar" MaxLength="50" />
+    <Property Name="Measurements" Type="varchar" MaxLength="50" />
+    <Property Name="DressSize" Type="int" />
+    <Property Name="Height" Type="int" />
+    <Property Name="HairColor" Type="varchar" MaxLength="50" />
+    <Property Name="EyeColor" Type="varchar" MaxLength="50" />
+    <Property Name="Availability" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="int" />
+    <Property Name="Orientation" Type="varchar" MaxLength="50" />
+    <Property Name="FavouritePerfume" Type="varchar" MaxLength="50" />
+    <Property Name="FavouriteCuisine" Type="varchar" MaxLength="50" />
+    <Property Name="UKtravel" Type="bit" />
+    <Property Name="LogoGuid" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserType" />
+    </Key>
+    <Property Name="UserType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_blog_comment_blog_post">
+    <End Role="blog_post" Type="Self.blog_post" Multiplicity="1" />
+    <End Role="blog_comment" Type="Self.blog_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_comment">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_post_to_category_blog_category">
+    <End Role="blog_category" Type="Self.blog_category" Multiplicity="1" />
+    <End Role="blog_post_to_category" Type="Self.blog_post_to_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="blog_post_to_category">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_post_to_category_blog_post">
+    <End Role="blog_post" Type="Self.blog_post" Multiplicity="1" />
+    <End Role="blog_post_to_category" Type="Self.blog_post_to_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_post_to_category">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_related_blog_post">
+    <End Role="blog_post" Type="Self.blog_post" Multiplicity="0..1" />
+    <End Role="blog_related" Type="Self.blog_related" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_related">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_tag_blog_post">
+    <End Role="blog_post" Type="Self.blog_post" Multiplicity="0..1" />
+    <End Role="blog_tag" Type="Self.blog_tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_tag">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscortModelStoreContainer">
+    <EntitySet Name="BannerImageTB" EntityType="Self.BannerImageTB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_category" EntityType="Self.blog_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_comment" EntityType="Self.blog_comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_post" EntityType="Self.blog_post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_post_to_category" EntityType="Self.blog_post_to_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_related" EntityType="Self.blog_related" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blog_tag" EntityType="Self.blog_tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryTb" EntityType="Self.CountryTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelDetail" EntityType="Self.ModelDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelImages" EntityType="Self.ModelImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelRates" EntityType="Self.ModelRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PageTB" EntityType="Self.PageTB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateTb" EntityType="Self.StateTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_blog_comment_blog_post" Association="Self.FK_blog_comment_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_comment" EntitySet="blog_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_post_to_category_blog_category" Association="Self.FK_blog_post_to_category_blog_category">
+      <End Role="blog_category" EntitySet="blog_category" />
+      <End Role="blog_post_to_category" EntitySet="blog_post_to_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_post_to_category_blog_post" Association="Self.FK_blog_post_to_category_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_post_to_category" EntitySet="blog_post_to_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_related_blog_post" Association="Self.FK_blog_related_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_related" EntitySet="blog_related" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_tag_blog_post" Association="Self.FK_blog_tag_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_tag" EntitySet="blog_tag" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

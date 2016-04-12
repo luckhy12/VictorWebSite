@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ed0bcd72e9c4dac8c73611a8ee3c229" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="EscortModel.UserType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EscortModel.PageTB" Width="1.5" PointX="4.5" PointY="1.25" />
+        <EntityTypeShape EntityType="EscortModel.CountryTb" Width="1.5" PointX="2.75" PointY="2.375" />
+        <EntityTypeShape EntityType="EscortModel.StateTb" Width="1.5" PointX="2.75" PointY="3.875" />
+        <EntityTypeShape EntityType="EscortModel.ModelRate" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EscortModel.UserMaster" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="EscortModel.ModelImage" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EscortModel.BannerImageTB" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EscortModel.Testimonial" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="EscortModel.blog_category" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EscortModel.blog_comment" Width="1.5" PointX="11.625" PointY="3.875" />
+        <EntityTypeShape EntityType="EscortModel.blog_post" Width="1.5" PointX="9.375" PointY="5.875" />
+        <EntityTypeShape EntityType="EscortModel.blog_post_to_category" Width="1.5" PointX="14.625" PointY="6.75" />
+        <EntityTypeShape EntityType="EscortModel.blog_related" Width="1.5" PointX="11.625" PointY="12.625" />
+        <EntityTypeShape EntityType="EscortModel.blog_tag" Width="1.5" PointX="11.625" PointY="10" />
+        <AssociationConnector Association="EscortModel.FK_blog_post_to_category_blog_category" />
+        <AssociationConnector Association="EscortModel.FK_blog_comment_blog_post" />
+        <AssociationConnector Association="EscortModel.FK_blog_post_to_category_blog_post" />
+        <AssociationConnector Association="EscortModel.FK_blog_related_blog_post" />
+        <AssociationConnector Association="EscortModel.FK_blog_tag_blog_post" />
+        <EntityTypeShape EntityType="EscortModel.ModelDetail" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

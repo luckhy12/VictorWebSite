@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscortModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserType1" />
+    </Key>
+    <Property Name="UserType1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeID" Type="Int32" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="EscortagramEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+    <EntitySet Name="PageTBs" EntityType="EscortModel.PageTB" />
+    <EntitySet Name="CountryTbs" EntityType="EscortModel.CountryTb" />
+    <EntitySet Name="StateTbs" EntityType="EscortModel.StateTb" />
+    <EntitySet Name="ModelRates" EntityType="EscortModel.ModelRate" />
+    <EntitySet Name="UserMasters" EntityType="EscortModel.UserMaster" />
+    <EntitySet Name="ModelImages" EntityType="EscortModel.ModelImage" />
+    <EntitySet Name="BannerImageTBs" EntityType="EscortModel.BannerImageTB" />
+    <EntitySet Name="Testimonials" EntityType="EscortModel.Testimonial" />
+    <EntitySet Name="blog_category" EntityType="EscortModel.blog_category" />
+    <EntitySet Name="blog_comment" EntityType="EscortModel.blog_comment" />
+    <EntitySet Name="blog_post" EntityType="EscortModel.blog_post" />
+    <EntitySet Name="blog_post_to_category" EntityType="EscortModel.blog_post_to_category" />
+    <EntitySet Name="blog_related" EntityType="EscortModel.blog_related" />
+    <EntitySet Name="blog_tag" EntityType="EscortModel.blog_tag" />
+    <AssociationSet Name="FK_blog_post_to_category_blog_category" Association="EscortModel.FK_blog_post_to_category_blog_category">
+      <End Role="blog_category" EntitySet="blog_category" />
+      <End Role="blog_post_to_category" EntitySet="blog_post_to_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_comment_blog_post" Association="EscortModel.FK_blog_comment_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_comment" EntitySet="blog_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_post_to_category_blog_post" Association="EscortModel.FK_blog_post_to_category_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_post_to_category" EntitySet="blog_post_to_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_related_blog_post" Association="EscortModel.FK_blog_related_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_related" EntitySet="blog_related" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blog_tag_blog_post" Association="EscortModel.FK_blog_tag_blog_post">
+      <End Role="blog_post" EntitySet="blog_post" />
+      <End Role="blog_tag" EntitySet="blog_tag" />
+    </AssociationSet>
+    <EntitySet Name="ModelDetails" EntityType="EscortModel.ModelDetail" />
+  </EntityContainer>
+  <EntityType Name="PageTB">
+    <Key>
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="PageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PageOrder" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="PageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CountryTb">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StateTb">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int32" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CountryID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ModelRate">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModelID" Type="Int32" />
+    <Property Name="Rate30min" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Rate1Hour" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Rate2Hours" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AdditionalHours" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DinnerRate" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="OverNight" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="MobileNo" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="Languages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Measurements" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DressSize" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="HairColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EyeColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Availability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="Orientation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FavouritePerfume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FavouriteCuisine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UKtravel" Type="Boolean" />
+    <Property Name="LogoGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ModelImage">
+    <Key>
+      <PropertyRef Name="ModelImageID" />
+    </Key>
+    <Property Name="ModelImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModelID" Type="Int32" />
+    <Property Name="BannerImageGuid" Type="Boolean" />
+    <Property Name="OtherImages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BannerImageTB">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BannerImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Testimonial">
+    <Key>
+      <PropertyRef Name="TestimonialID" />
+    </Key>
+    <Property Name="TestimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TestimonialTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TestimonialDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TestimonialImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="blog_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="enabled" Type="Boolean" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="blog_post_to_category" Relationship="EscortModel.FK_blog_post_to_category_blog_category" FromRole="blog_category" ToRole="blog_post_to_category" />
+  </EntityType>
+  <EntityType Name="blog_comment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post_id" Type="Int32" Nullable="false" />
+    <Property Name="is_reply_to_id" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="mark_read" Type="Boolean" />
+    <Property Name="enabled" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="blog_post" Relationship="EscortModel.FK_blog_comment_blog_post" FromRole="blog_comment" ToRole="blog_post" />
+  </EntityType>
+  <EntityType Name="blog_post">
+    <Key>
+      <PropertyRef Name="blogId" />
+    </Key>
+    <Property Name="blogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="article" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="authorId" Type="Int32" />
+    <Property Name="date_published" Type="DateTime" Precision="3" />
+    <Property Name="banner_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="featured" Type="Boolean" />
+    <Property Name="enabled" Type="Boolean" />
+    <Property Name="comments_enabled" Type="Boolean" />
+    <Property Name="views" Type="Int32" />
+    <NavigationProperty Name="blog_comment" Relationship="EscortModel.FK_blog_comment_blog_post" FromRole="blog_post" ToRole="blog_comment" />
+    <NavigationProperty Name="blog_post_to_category" Relationship="EscortModel.FK_blog_post_to_category_blog_post" FromRole="blog_post" ToRole="blog_post_to_category" />
+    <NavigationProperty Name="blog_related" Relationship="EscortModel.FK_blog_related_blog_post" FromRole="blog_post" ToRole="blog_related" />
+    <NavigationProperty Name="blog_tag" Relationship="EscortModel.FK_blog_tag_blog_post" FromRole="blog_post" ToRole="blog_tag" />
+    <Property Name="Love" Type="Int32" />
+  </EntityType>
+  <EntityType Name="blog_post_to_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_id" Type="Int32" Nullable="false" />
+    <Property Name="post_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="blog_category" Relationship="EscortModel.FK_blog_post_to_category_blog_category" FromRole="blog_post_to_category" ToRole="blog_category" />
+    <NavigationProperty Name="blog_post" Relationship="EscortModel.FK_blog_post_to_category_blog_post" FromRole="blog_post_to_category" ToRole="blog_post" />
+  </EntityType>
+  <EntityType Name="blog_related">
+    <Key>
+      <PropertyRef Name="relatedid" />
+    </Key>
+    <Property Name="relatedid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post_id" Type="Int32" />
+    <Property Name="related_post_id" Type="Int32" />
+    <NavigationProperty Name="blog_post" Relationship="EscortModel.FK_blog_related_blog_post" FromRole="blog_related" ToRole="blog_post" />
+  </EntityType>
+  <EntityType Name="blog_tag">
+    <Key>
+      <PropertyRef Name="tagid" />
+    </Key>
+    <Property Name="tagid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post_id" Type="Int32" />
+    <Property Name="tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="blog_post" Relationship="EscortModel.FK_blog_tag_blog_post" FromRole="blog_tag" ToRole="blog_post" />
+  </EntityType>
+  <Association Name="FK_blog_post_to_category_blog_category">
+    <End Type="EscortModel.blog_category" Role="blog_category" Multiplicity="1" />
+    <End Type="EscortModel.blog_post_to_category" Role="blog_post_to_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="blog_post_to_category">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_comment_blog_post">
+    <End Type="EscortModel.blog_post" Role="blog_post" Multiplicity="1" />
+    <End Type="EscortModel.blog_comment" Role="blog_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_comment">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_post_to_category_blog_post">
+    <End Type="EscortModel.blog_post" Role="blog_post" Multiplicity="1" />
+    <End Type="EscortModel.blog_post_to_category" Role="blog_post_to_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_post_to_category">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_related_blog_post">
+    <End Type="EscortModel.blog_post" Role="blog_post" Multiplicity="0..1" />
+    <End Type="EscortModel.blog_related" Role="blog_related" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_related">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blog_tag_blog_post">
+    <End Type="EscortModel.blog_post" Role="blog_post" Multiplicity="0..1" />
+    <End Type="EscortModel.blog_tag" Role="blog_tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog_post">
+        <PropertyRef Name="blogId" />
+      </Principal>
+      <Dependent Role="blog_tag">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ModelDetail">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="MobileNo" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="Languages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Measurements" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DressSize" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="HairColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EyeColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Availability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Orientation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FavouritePerfume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FavouriteCuisine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UKtravel" Type="Boolean" />
+    <Property Name="WorldWideTravel" Type="Boolean" />
+    <Property Name="Services" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
